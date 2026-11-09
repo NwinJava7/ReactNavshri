@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+:root {
+  --font-outfit: "Outfit", Arial, Helvetica, sans-serif;
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --background: #ffffff;
+  --foreground: #1f1a14;
+  --forest: #1b3a2f;
+  --gold: #b8893a;
+  --terracotta: #c45c26;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-forest: var(--forest);
+  --color-gold: var(--gold);
+  --color-terracotta: var(--terracotta);
+  --font-sans: var(--font-outfit);
+  --font-serif: var(--font-cormorant);
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  font-family: var(--font-outfit), Arial, Helvetica, sans-serif;
+}
+
+.font-serif {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+select {
+  background-color: #fff;
+}
+
+button:focus,
+button:focus-visible,
+select:focus,
+select:focus-visible {
+  outline: none;
+}
+
+@keyframes navshri-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.navshri-marquee {
+  display: flex;
+  width: max-content;
+  animation: navshri-marquee 28s linear infinite;
+}
+
+.living-eye {
+  position: relative;
+  display: block;
+  width: 28px;
+  height: 18px;
+  overflow: hidden;
+  border-radius: 50% / 58%;
+}
+
+.living-eye__white {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 50% / 58%;
+  background: radial-gradient(ellipse at 50% 45%, #fff 0%, #f4efe4 70%, #e4d8c8 100%);
+  box-shadow: inset 0 0 0 1px rgba(80, 50, 20, 0.18);
+}
+
+.living-eye__iris {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 32%, #7cbc7a 0%, #2f6b4f 55%, #163326 100%);
+  transform: translate(-50%, -50%);
+  animation: living-eye-look 5.5s ease-in-out infinite;
+}
+
+.living-eye__pupil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #0c1610;
+  transform: translate(-50%, -50%);
+}
+
+.living-eye__glint {
+  position: absolute;
+  top: 22%;
+  left: 28%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.living-eye__lid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 55%;
+  background: linear-gradient(#efe6d8, #e4d5c2);
+  animation: living-eye-blink 4.4s ease-in-out infinite;
+  animation-delay: inherit;
+}
+
+.living-eye__lid--top {
+  top: 0;
+  border-radius: 14px 14px 6px 6px;
+  transform-origin: top center;
+}
+
+.living-eye__lid--bottom {
+  bottom: 0;
+  border-radius: 6px 6px 14px 14px;
+  transform-origin: bottom center;
+}
+
+@keyframes living-eye-blink {
+  0%,
+  86%,
+  100% {
+    transform: scaleY(0.08);
+  }
+  90%,
+  93% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes living-eye-look {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  35% {
+    transform: translate(-38%, -54%);
+  }
+  65% {
+    transform: translate(-62%, -46%);
+  }
+}
